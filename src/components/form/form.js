@@ -16,7 +16,6 @@ class Form extends React.Component {
   }
   handelUrl = (e) => {
     this.setState({ url: e.target.value });
-    console.log(this.state.url);
   };
   click = (e) => {
     let requstes = this.state.requstes;

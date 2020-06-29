@@ -11,20 +11,20 @@ describe('<Form/>', () => {
     // expect(thing.state.stuff).toBeFalsy();
     expect(form.state().url).toEqual('test');
   });
-  //   it('Does it properly display the users input in the output area on form submit?', () => {
-  //     const thing = shallow(<Form />);
+  it('Does it properly display the users input in the output area on form submit?', () => {
+    const form = shallow(<Form />);
+    expect(form.find('.continar p').exists()).toBeFalsy();
+    const input = form.find('input');
+    const button = form.find('[name="get"]');
+    input.simulate('change', { target: { name: 'input', value: 'test' } });
+    button.simulate('click', { target: { name: 'get' } });
+    expect(form.find('.continar').render().length).toBeTruthy();
+  });
 
-  //     expect(thing.find('section aside h2').exists()).toBeTruthy();
-  //   });
-  //   it('Does it properly clear the form/state after the form is submitted?', () => {
-  //     const thing = shallow(<Form />);
-
-  //     expect(thing.find('section aside h2').exists()).toBeTruthy();
-  //   });
   it('Do the method selectors/checkboxes obey your styling rules?', () => {
     const form = shallow(<Form />);
-    const button = form.find('button [name=get]');
-    button.simulate('click');
+    const button = form.find('[name="get"]');
+    button.simulate('click', { target: { name: 'get' } });
     expect(form.state().get).toEqual('green');
   });
 });
