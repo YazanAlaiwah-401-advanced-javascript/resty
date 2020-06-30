@@ -8,8 +8,7 @@ describe('<Form/>', () => {
     const form = mount(<Form />);
     const input = form.find('input');
     input.simulate('change', { target: { name: 'input', value: 'test' } });
-    // expect(thing.state.stuff).toBeFalsy();
-    expect(form.state().url).toEqual('test');
+    expect(form.state('url')).toEqual('test');
   });
   it('Does it properly display the users input in the output area on form submit?', () => {
     const form = shallow(<Form />);
@@ -25,6 +24,6 @@ describe('<Form/>', () => {
     const form = shallow(<Form />);
     const button = form.find('[name="get"]');
     button.simulate('click', { target: { name: 'get' } });
-    expect(form.state().get).toEqual('green');
+    expect(form.state('get')).toEqual('green');
   });
 });
