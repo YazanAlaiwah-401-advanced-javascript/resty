@@ -19,6 +19,7 @@ class Form extends React.Component {
   };
   click = (e) => {
     this.props.updataState(this.state.url);
+    this.setState({ url: '' });
     // let requstes = this.state.requstes;
     // let html = (
     //   <p>
@@ -47,7 +48,11 @@ class Form extends React.Component {
       <div className="form">
         <p className="purl">
           <span className="span">URL:</span>
-          <input name="input" onChange={this.handelUrl} />
+          <input
+            name="input"
+            value={this.state.url}
+            onChange={this.handelUrl}
+          />
           <button id="button" onClick={this.click}>
             GO!
           </button>
