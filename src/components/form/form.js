@@ -18,16 +18,18 @@ class Form extends React.Component {
     this.setState({ url: e.target.value });
   };
   click = (e) => {
-    let requstes = this.state.requstes;
-    let html = (
-      <p>
-        <span className="span">{this.state.method}</span>
-        {this.state.url}
-      </p>
-    );
-    requstes.push(html);
-    this.setState({ requstes });
-    console.log('helllo', this.state);
+    this.props.updataState(this.state.url);
+    this.setState({ url: '' });
+    // let requstes = this.state.requstes;
+    // let html = (
+    //   <p>
+    //     <span className="span">{this.state.method}</span>
+    //     {this.state.url}
+    //   </p>
+    // );
+    // requstes.push(html);
+    // this.setState({ requstes });
+    // console.log('helllo', this.state);
   };
   handelMethod = (e) => {
     let method = e.target.name;
@@ -46,7 +48,11 @@ class Form extends React.Component {
       <div className="form">
         <p className="purl">
           <span className="span">URL:</span>
-          <input name="input" onChange={this.handelUrl} />
+          <input
+            name="input"
+            value={this.state.url}
+            onChange={this.handelUrl}
+          />
           <button id="button" onClick={this.click}>
             GO!
           </button>
@@ -81,7 +87,6 @@ class Form extends React.Component {
         >
           DELETE
         </button>
-        <div className="continar">{this.state.requstes}</div>
       </div>
     );
   }
