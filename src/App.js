@@ -41,7 +41,6 @@ class App extends React.Component {
       method,
       headers: {
         'Content-Type': 'application/json',
-        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     };
     if (body) obj.body = body;
@@ -63,7 +62,6 @@ class App extends React.Component {
           <div className="test">
             <div>
               <h3>History</h3>
-              {console.log(this.state.requstes, 'hello')}
               <div>{this.state.requstes}</div>
             </div>
             <div>
@@ -82,11 +80,10 @@ class App extends React.Component {
                 <If condition={this.state.loader}>
                   <Then>
                     <Loader
-                      type="Grid"
+                      type="Circles"
                       color="#00BFFF"
-                      height={100}
-                      width={100}
-                      // timeout={3000} //3 secs
+                      height={150}
+                      width={150}
                     />
                   </Then>
                 </If>

@@ -90,10 +90,13 @@ class Form extends React.Component {
         >
           DELETE
         </button>
-        <textarea
-          className="text"
-          onChange={(e) => this.handelChange(e, 'body')}
-        ></textarea>
+        {this.state.method !== 'GET' && (
+          <textarea
+            className="text"
+            onChange={(e) => this.handelChange(e, 'body')}
+            placeholder="body as JSON Object"
+          ></textarea>
+        )}
       </div>
     );
   }
