@@ -6,7 +6,7 @@ import History from './components/history/history.js';
 import Results from './components/results/results.js';
 import { Route } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
-import { If, Then, Else } from './if/index.js';
+import { If, Then } from './if/index.js';
 
 import './App.scss';
 
